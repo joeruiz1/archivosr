@@ -52,47 +52,45 @@ public class DB {
         System.out.println(archivo.readChar());
         archivo.skipBytes(4);
         System.out.println(archivo.readInt());
-        
+
     }
 
-    public void crear(int uno, int dos, char s) throws FileNotFoundException, IOException {
-
-        System.out.println("--------------------");
+    public ArrayList<Registro> crear(int uno, int dos, char s) throws FileNotFoundException, IOException {
 
         RandomAccessFile archivo = new RandomAccessFile("test.txt", "rw");
 
-       
-        
-        Registro r=new Registro();
-        while(r!=null){
-        ArrayList<Registro> l = new ArrayList<>();
-        
-        uno=r.getCampo1();
-        dos=r.getCampo2();
-        s=r.getCampo3();
-        
-        System.out.println();
-        System.out.println("-------------");
-         System.out.println(archivo.getFilePointer());
-        for (Registro registro : registros) {
-            archivo.writeInt(uno);
-            System.out.println(archivo.getFilePointer()); //Byte actual
-            archivo.writeInt(dos);
-            System.out.println(archivo.getFilePointer()); //Byte actual
-            archivo.writeChar(s);
-            System.out.println(archivo.getFilePointer()); //Byte actual
+        ArrayList<Registro> l=null;
+        Registro r = new Registro();
+        if (r == null) {
+            ArrayList<Registro> x= new ArrayList<>();
+
+            uno = r.getCampo1();
+            dos = r.getCampo2();
+            s = r.getCampo3();
+            x.add(r);
         }
-        archivo.seek(8);
-        System.out.println(archivo.readChar());
-        archivo.seek(18);
-        System.out.println(archivo.readChar());
-        archivo.skipBytes(4);
-        System.out.println(archivo.readInt());
+        if (r != null) {
+             l= new ArrayList<>();
+
+            uno = r.getCampo1();
+            dos = r.getCampo2();
+            s = r.getCampo3();
+            l.add(r);
+            
+            for (int i = 0; i <l.size(); i++) {
+            System.out.println("la primera creacion es " +l.get(i));
+    
+            }
+            
+        }
+        return l;
+    }
     
     
-    }    
-        }
+    public void listar(){
         
+    }
+    
     
 
 }

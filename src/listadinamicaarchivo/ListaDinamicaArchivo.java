@@ -22,8 +22,8 @@ public class ListaDinamicaArchivo {
     public static void main(String[] args) {
         try {
             DB db = new DB();
-           db.escribirArchivo();
-           db.crear(1,2,'e');
+//           db.escribirArchivo();
+          db.crear(1,2,'e');
         } catch (IOException ex) {
             Logger.getLogger(ListaDinamicaArchivo.class.getName()).log(Level.SEVERE, null, ex);
         }
